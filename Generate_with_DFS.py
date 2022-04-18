@@ -25,8 +25,6 @@ def Generate_with_DFS(row, column):
                 continue
             if used[new_cell[0]][new_cell[1]]:
                 continue
-            if now_cell == finish_cell:
-                continue
             find_new_cell = True
             pred[new_cell[0]][new_cell[1]] = now_cell
             delete_walls.append([now_cell, new_cell])

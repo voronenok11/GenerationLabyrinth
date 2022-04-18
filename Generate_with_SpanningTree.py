@@ -7,7 +7,6 @@ def Generate_with_SpanningTree(row, column):
     edges = []
     start_cell = (0, 0)
     finish_cell = (row - 1, column - 1)
-    was_edge_with_finish_cell = False
     graph = []
     find_path = False
     for r in range(row):
@@ -60,10 +59,6 @@ def Generate_with_SpanningTree(row, column):
         parent_second_cell = find_parent(second_cell)
         if parent_first_cell == parent_second_cell:
             continue
-        if was_edge_with_finish_cell and (first_cell == finish_cell or second_cell == finish_cell):
-            continue
-        if first_cell == finish_cell or second_cell == finish_cell:
-            was_edge_with_finish_cell = True
         graph[first_cell[0]][first_cell[1]].append(second_cell)
         graph[second_cell[0]][second_cell[1]].append(first_cell)
         delete_walls.append((first_cell, second_cell))
