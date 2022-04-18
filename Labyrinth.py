@@ -10,7 +10,7 @@ negative_answers = ["no", "n"]
 saved_labyrinths = []
 file_with_names_of_saved_files = open("name_of_saved_files", "r")
 for line in file_with_names_of_saved_files:
-    saved_labyrinths.append(line)
+    saved_labyrinths.append(line[:len(line) - 1])
 file_with_names_of_saved_files.close()
 while True:
     want_to_open_labyrinth = input("Хотите открыть существующий лабиринт: ")
@@ -84,7 +84,7 @@ else:
     if want_to_save_labyrinth in positive_answers:
         name_of_save_file = input("Введите имя файла, куда сохранить лабиринт: ")
         file_with_names_of_saved_files = open("name_of_saved_files", "a")
-        file_with_names_of_saved_files.write(name_of_save_file)
+        file_with_names_of_saved_files.write(name_of_save_file + "\n")
         file_with_names_of_saved_files.close()
         my_file = open(name_of_save_file, "w+")
         my_file.write(str(row) + ' ' + str(column) + '\n')
